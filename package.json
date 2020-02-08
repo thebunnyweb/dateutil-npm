@@ -1,5 +1,5 @@
 {
-  "name": "date-util",
+  "name": "date-util-generic",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

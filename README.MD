@@ -5,14 +5,14 @@ Date Util manages to transform the Date to readable format.
 
 # Install
 
-    npm i --save dateutil
+    npm i --save date-util-generic
 or 
 
-    yarn add dateutil
+    yarn add date-util-generic
 
 ## Examples
 
-    import  dateUtil  from  'dateutil'
+    import  dateUtil  from  'date-util-generic'
     dateUtil.evaluate("2019-9-15", { separator:  '-', today:  'false', format:  "dd-MMMM-YYYY"}) // Output : 15-September-2019
     dateUtil.evaluate("2019-9-29", { separator:  '--', today:  'false', format:  "dd-MM-YYYY"}) // Output : 29--Sep--2019
     dateUtil.evaluate("MM-YY-DD", { separator:  '-'}) // Output : Feb-20-Sat
