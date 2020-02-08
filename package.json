@@ -1,0 +1,12 @@
+{
+  "name": "date-util",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "node -r esm ./test.js"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
