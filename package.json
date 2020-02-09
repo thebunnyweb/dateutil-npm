@@ -1,13 +1,10 @@
 {
   "name": "date-util-generic",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "node -r esm ./test.js"
-  },
-  "dependencies": {
-    "esm": "^3.2.25"
   },
   "keywords": [
     "dateutils",
@@ -15,5 +12,8 @@
     "generic dates",
     "dates",
     "npm date util"
-  ]
+  ],
+  "devDependencies": {
+    "esm": "^3.2.25"
+  }
 }

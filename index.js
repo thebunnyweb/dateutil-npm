@@ -48,8 +48,45 @@ module.exports = {
         }
         return Object.values(today).join(config['separator'] || '-')
     },
+    calculateTime(dateExtract, todayDate, time='days'){
+        let minutes = 1000 * 60,
+            hours = 60,
+            days =  24,
+            years = 365,
+            weeks = 7,
+            months = 30,
+            timediff = dateExtract.getTime() > todayDate.getTime() ? dateExtract.getTime() - todayDate.getTime() : todayDate.getTime() - dateExtract.getTime();
+
+        if(time === 'months'){
+            return Math.floor((((timediff/minutes)/hours)/days)/months);
+        }else if(time === 'weeks'){
+            return Math.round((((timediff/minutes)/hours)/days)/weeks);
+        }else if(time === 'days'){
+            return Math.round(((timediff/minutes)/hours)/days);
+        }else if(time === 'hours'){
+            return Math.round(((timediff/minutes)/hours));
+        }else if(time === 'minutes'){
+            return Math.round(((timediff/minutes)));
+        }else if (time === 'absolute'){
+            let daysPeriod = Math.round(((timediff/minutes)/hours)/days)
+            if(daysPeriod < months) {
+                return `${daysPeriod} days ago`
+            }else{
+                let monthsPeriod = Math.floor((((timediff/minutes)/hours)/days)/months);
+                return `${monthsPeriod} months ago`
+            }
+        }  
+        return Math.round(((timediff/minutes)/hours)/days);
+    },
+    comparer(date, args){
+        let config = args,
+            dateIndex = date.split("-"),
+            dateExtract = new Date(+dateIndex[0], +dateIndex[1]-1, +dateIndex[2]+1),
+            todayDate = new Date();
+        return this.calculateTime(dateExtract, todayDate, args) 
+    },
     dateLog(data){
-        console.log(`%c ${new Date()} : ${data}`, 'color: orange')
+        console.log(`${new Date()} : ${data}`)
     }
 }
 
